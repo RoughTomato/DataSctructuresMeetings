@@ -6,30 +6,31 @@
 template<class T>
 //Node.hpp
 class Node {
-public:
-        T data;
-        Node * next;
+  public:
+    T get();
+    void set(T);
+  protected:
+    T data;
+    Node * next;
 };
 
 template<class T>
 //LinkedList.hpp
 class LinkedList {
 
-  private:
-    Node<T> * head;
+  protected:
+    Node<T> head;
     int size;
 
   public:
-    LinkedList();
-    LinkedList(T);
+    explicit LinkedList();
+    explicit LinkedList(T);
+    explicit LinkedList(const LinkedList<T> &);
     ~LinkedList();
     void add(int, T);
     void append(T);
-    Node<T> get(int);
+    T get(int);
     void remove(int);
     std::string toString();
-
-  protected:
-
 };
 #endif
